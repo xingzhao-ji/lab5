@@ -1,16 +1,20 @@
 # Hey! I'm Filing Here
 
-In this lab, I successfully implemented the following TODO
+In this lab, I successfully implemented a 1 MiB ext2 filesystem with 2 directories, 1 regular file, and 1 symbolic link.
 
 ## Building
-
-TODO
+Run this command in the same directory where the Makefile is located to build:
+```shell
+make
+```
 
 ## Running
-
-TODO
+```shell
+```
 
 
 ## Cleaning up
-
-TODO
+To clean up and remove the executables created, use this command:
+```shell
+make clean
+```
