@@ -9,9 +9,20 @@ make
 ```
 
 ## Running
+Create the filesystem image with ./ext2-create, then verify it with dumpe2fs and fsck.ext2:
 ```shell
+./ext2-create
+dumpe2fs cs111-base.img
+fsck.ext2 cs111-base.img
 ```
-
+Mount the filesystem to explore its contents:
+```shell
+mkdir mnt
+sudo mount -o loop cs111-base.img mnt
+ls -la mnt/
+sudo umount mnt
+rmdir mnt
+```
 
 ## Cleaning up
 To clean up and remove the executables created, use this command:
