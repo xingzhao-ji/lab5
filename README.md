@@ -25,7 +25,7 @@ rmdir mnt
 ```
 
 ## Cleaning up
-To clean up and remove the executables created, use this command:
+To clean up and remove the executables created, run this command:
 ```shell
 make clean
 ```
