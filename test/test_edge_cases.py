@@ -78,7 +78,7 @@ class TestExt2EdgeCases(unittest.TestCase):
         
         # Check reserved array at end (starts at 136 after volume name)
         reserved_offset = 136
-        reserved_size = 229 * 4
+        reserved_size = 1024 - 136  # Fixed: should be 888, not 916
         reserved = sb_data[reserved_offset:reserved_offset + reserved_size]
         self.assertEqual(reserved, b'\x00' * reserved_size, "Superblock reserved should be zero")
     

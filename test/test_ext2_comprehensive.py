@@ -159,8 +159,8 @@ class TestExt2Comprehensive(unittest.TestCase):
         inode_data = inode_table[128:256]  # 128 bytes per inode
         
         # Unpack inode structure (corrected format)
-        fmt = '<HHIIIIIHHIII'
-        fields = struct.unpack(fmt, inode_data[:48])
+        fmt = '<HHIIIIIHHIIII'
+        fields = struct.unpack(fmt, inode_data[:44])
         
         # Check mode (directory with rwxr-xr-x)
         expected_mode = 0x4000 | 0o755  # S_IFDIR | permissions
@@ -187,8 +187,8 @@ class TestExt2Comprehensive(unittest.TestCase):
         inode_table = self.read_block(6)  # Inode 11 is in block 6
         inode_data = inode_table[256:384]  # Inode 11 at offset 256
         
-        fmt = '<HHIIIIIHHIII'
-        fields = struct.unpack(fmt, inode_data[:48])
+        fmt = '<HHIIIIIHHIIII'
+        fields = struct.unpack(fmt, inode_data[:44])
         
         # Check mode
         expected_mode = 0x4000 | 0o755
@@ -209,8 +209,8 @@ class TestExt2Comprehensive(unittest.TestCase):
         inode_table = self.read_block(6)
         inode_data = inode_table[384:512]  # Inode 12 at offset 384
         
-        fmt = '<HHIIIIIHHIII'
-        fields = struct.unpack(fmt, inode_data[:48])
+        fmt = '<HHIIIIIHHIIII'
+        fields = struct.unpack(fmt, inode_data[:44])
         
         # Check mode (regular file with rw-r--r--)
         expected_mode = 0x8000 | 0o644
@@ -234,8 +234,8 @@ class TestExt2Comprehensive(unittest.TestCase):
         inode_table = self.read_block(6)
         inode_data = inode_table[512:640]  # Inode 13 at offset 512
         
-        fmt = '<HHIIIIIHHIII'
-        fields = struct.unpack(fmt, inode_data[:48])
+        fmt = '<HHIIIIIHHIIII'
+        fields = struct.unpack(fmt, inode_data[:44])
         
         # Check mode (symlink with rw-r--r--)
         expected_mode = 0xA000 | 0o644
